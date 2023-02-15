@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from './shared/auth.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { AuthService } from './shared/auth.service';
 export class AppComponent {
   title = 'shop';
   isLoggedIn = false;
-  constructor(private auth: AuthService) {}
+
+  constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit(): void 
   {
@@ -19,7 +21,7 @@ export class AppComponent {
       this.isLoggedIn = JSON.parse(storedIsLoggedIn);
     }
   }
-  
+
   logout()
   {
     this.auth.logout().subscribe({
@@ -28,6 +30,7 @@ export class AppComponent {
         localStorage.removeItem('token');
         localStorage.removeItem('isLoggedIn');
         this.isLoggedIn = false;
+        this.router.navigate(["/login"]);
       },
       error: err => {
         console.log('Hiba! Az azonosítás sikertelen!')
