@@ -57,4 +57,15 @@ export class AuthService {
     };
     return this.http.post<any>(url, "", httpOption);
   }
+
+  ifLoggedIn():any
+  {
+    if(localStorage.getItem("token") ===null)
+    {
+      return false;
+    }
+
+    let token = localStorage.getItem('token');
+    return token;
+  }
 }
