@@ -1,0 +1,55 @@
+.container {
+    .nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .nav-item {
+          margin: 0 10px;
+          list-style: none;
+          
+          .nav-link {
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            
+            &:hover {
+              color: #888;
+            }
+            
+            &.active {
+              color: #00f;
+            }
+          }
+        }
+      }
+    }
+    
+    router-outlet {
+      margin-top: 20px;
+    }
+  }
+  
+
+button.nav-link 
+{
+background-color: #ffffff;
+color: rgb(0, 0, 0);
+border: none;
+border-radius: 3px;
+padding: 8px 16px;
+font-size: 16px;
+cursor: pointer;
+}
+  
+
+#hidden-button 
+{
+    display: none;
+}
