@@ -32,7 +32,7 @@ class ProductController extends BaseController {
 
     public function create( Request $request ) {
         
-        DB::statement("ALTER TABLE products AUTO_INCREMENT = 1;");
+            
 
         $product = $request->all();
         $validator = Validator::make( $product, [
@@ -45,7 +45,7 @@ class ProductController extends BaseController {
 
         if( $validator->fails() ) {
 
-            return $this-sendError( $validator, "Hiba" );
+            return $this->sendError( $validator, "Hiba" );
         }
 
         $product = Product::create( $product );
@@ -66,7 +66,7 @@ class ProductController extends BaseController {
 
         if( $validator->fails() ) {
 
-            return $this-sendError( $validator, "Hiba" );
+            return $this->sendError( $validator, "Hiba" );
         }
 
         $product = Product::find( $id );
